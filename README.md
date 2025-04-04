@@ -79,6 +79,63 @@ An advanced Model Context Protocol (MCP) server for [Cline](https://github.com/c
 
 6. Restart Cline to load the new MCP server
 
+## VS Code & GitHub Copilot Agent Support
+
+For one-click installation, click one of the install buttons below:
+
+[![Install with NPX in VS Code](https://img.shields.io/badge/VS_Code-NPM-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](h[ttps://insiders.vscode.dev/redirect/mcp/install?name=brave&inputs=%5B%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22apiKey%22%7D%5D&config=%7B%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40modelcontextprotocol%2Fserver-brave-search%22%5D%2C%22env%22%3A%7B%22BRAVE_API_KEY%22%3A%22%24%7Binput%3Abrave_api_key%7D%22%7D%7D](https://insiders.vscode.dev/redirect/mcp/install?name=everart-forge&config=%7B%22command%22%3A%22node%22%2C%22args%22%3A%5B%22%2Fabsolute%2Fpath%2Fto%2Feverart-forge-mcp%2Fbuild%2Findex.js%22%5D%2C%22env%22%3A%7B%22EVERART_API_KEY%22%3A%22%24%7Binput%3Aeverart_api_key%7D%22%7D%7D&inputs=%5B%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22everart_api_key%22%2C%22description%22%3A%22EverArt+API+Key%22%2C%22password%22%3Atrue%7D%5D)) [![Install with NPX in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-NPM-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=everart-forge&config=%7B%22command%22%3A%22node%22%2C%22args%22%3A%5B%22%2Fabsolute%2Fpath%2Fto%2Feverart-forge-mcp%2Fbuild%2Findex.js%22%5D%2C%22env%22%3A%7B%22EVERART_API_KEY%22%3A%22%24%7Binput%3Aeverart_api_key%7D%22%7D%7D&inputs=%5B%7B%22type%22%3A%22promptString%22%2C%22id%22%3A%22everart_api_key%22%2C%22description%22%3A%22EverArt+API+Key%22%2C%22password%22%3Atrue%7D%5D&quality=insiders)
+
+
+For manual installation, click the install buttons above or add the following to your User Settings (JSON) file in VS Code (press `Ctrl + Shift + P` and type `Preferences: Open User Settings (JSON)`):
+
+```json
+{
+  "mcp": {
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "everart_api_key",
+        "description": "EverArt API Key",
+        "password": true
+      }
+    ],
+    "servers": {
+      "everart-forge": {
+        "command": "node",
+        "args": ["/absolute/path/to/everart-forge-mcp/build/index.js"],
+        "env": {
+          "EVERART_API_KEY": "${input:everart_api_key}"
+        }
+      }
+    }
+  }
+}
+```
+
+Alternatively, add this configuration to `.vscode/mcp.json` in your workspace:
+
+```json
+{
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "everart_api_key",
+      "description": "EverArt API Key",
+      "password": true
+    }
+  ],
+  "servers": {
+    "everart-forge": {
+      "command": "node",
+      "args": ["/absolute/path/to/everart-forge-mcp/build/index.js"],
+      "env": {
+        "EVERART_API_KEY": "${input:everart_api_key}"
+      }
+    }
+  }
+}
+```
+
 ## Usage Examples
 
 Once configured, you can use Cline to generate images with prompts like:
